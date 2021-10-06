@@ -27,7 +27,9 @@ export class DetailPage {
       this.id = navParams.get('id');
 
       if(this.id !== 0) {
-        this.note = notesService.getNote(this.id)[0];
+        notesService.getNote(this.id).subscribe(data => {
+          this.note = data;
+        });
       }
       
   }
